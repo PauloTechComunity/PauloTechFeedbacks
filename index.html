@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,33 +8,33 @@
     <link rel="stylesheet" href="index.css">
     <title>Paulo Tech - Feedbacks</title>
     <style>
-        body { 
+        body {
             background-color: rgb(133, 68, 236);
         }
-        
+
         .menu {
             text-align: center;
             background-color: rgba(116, 116, 116, 0.904);
             box-shadow: 0 0 10px rgba(63, 63, 63, 0.952);
             height: 100px;
-            position: fixed; 
-            top: 0; 
-            left: 0; 
-            width: 100%; 
-            z-index: 1000; 
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
         }
-        
+
         h1 {
             color: rgba(250, 250, 250, 0.911);
             font-size: 25px;
         }
-        
+
         .logo {
             border-radius: 50%;
             height: 90px;
             width: 90px;
         }
-        
+
         .form {
             background-color: rgba(212, 212, 212, 0.877);
             box-shadow: 0 0 10px rgb(0, 0, 0);
@@ -51,7 +52,7 @@
             padding: 10px;
             box-sizing: border-box;
         }
-        
+
         .inputNome {
             border: 1px solid black;
             font-size: 17px;
@@ -62,17 +63,17 @@
             padding: 5px;
             text-align: center;
         }
-        
+
         .inputNome::placeholder {
             color: rgba(0, 0, 0, 0.822);
         }
-        
+
         .inputNome:focus {
             outline: none;
             border-color: #000000;
             box-shadow: 0 0 10px rgba(49, 49, 49, 0.904);
         }
-        
+
         .inputEmail {
             border: 1px solid black;
             font-size: 17px;
@@ -83,17 +84,17 @@
             padding: 5px;
             text-align: center;
         }
-        
+
         .inputEmail::placeholder {
             color: rgba(0, 0, 0, 0.822);
         }
-        
+
         .inputEmail:focus {
             outline: none;
             border-color: #000000;
             box-shadow: 0 0 10px rgba(49, 49, 49, 0.904);
         }
-        
+
         .inputTextArea {
             border: 1px solid black;
             font-size: 17px;
@@ -104,17 +105,17 @@
             padding: 5px;
             text-align: center;
         }
-        
+
         .inputTextArea:focus {
             outline: none;
             border-color: #000000;
             box-shadow: 0 0 10px rgba(49, 49, 49, 0.904);
         }
-        
+
         .inputTextArea::placeholder {
             color: rgba(0, 0, 0, 0.822);
         }
-        
+
         Button {
             background-color: rgb(5, 5, 252);
             color: white;
@@ -125,91 +126,94 @@
             width: 250px;
             font-size: 16px;
         }
-        
+
         Button:hover {
             background-color: rgb(66, 66, 219);
         }
-        
+
         p {
             color: rgb(0, 0, 0);
             font-size: 20px;
             font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
         }
-        
+
         @media (max-width: 600px) {
             .App {
-                height: 120px; 
+                height: 120px;
                 padding: 10px;
             }
-        
+
             h1 {
-                font-size: 1.2em; 
+                font-size: 1.2em;
             }
-        
+
             .form {
-                width: 90%; 
+                width: 90%;
                 left: 5%;
-                top: 150px; 
+                top: 150px;
             }
-        
-            .inputNome, .inputEmail, .inputTextArea {
-                width: 90%; 
+
+            .inputNome,
+            .inputEmail,
+            .inputTextArea {
+                width: 90%;
             }
-        
+
             Button {
-                width: 90%; 
+                width: 90%;
             }
         }
     </style>
 </head>
+
 <body>
     <div class="menu">
-       <img class="logo" src="image/logoredonda.png" alt="Logo Paulo Tech" />
+        <img class="logo" src="image/logoredonda.png" alt="Logo Paulo Tech" />
     </div>
     <br />
-    <center>
-        <form class="form" id="feedbackForm">
-            <p>Nome</p>
-            <input class="inputNome" id="nome" placeholder="Digite seu nome" required />
-            <p>Feedback</p>
-            <textarea class="inputTextArea" id="feedback" placeholder="Digite seu feedback" required></textarea>
-            <p>Email</p>
-            <input class="inputEmail" id="email" placeholder="Digite seu email" type="email" required />
-            <br />
-            <button class="Button" type="submit">Enviar Feedback</button>
-        </form>
-    </center>
+
+    <form class="form" id="feedbackForm">
+        <p>Nome</p>
+        <input class="inputNome" id="nome" placeholder="Digite seu nome" required />
+        <p>Feedback</p>
+        <textarea class="inputTextArea" id="feedback" placeholder="Digite seu feedback" required></textarea>
+        <p>Email</p>
+        <input class="inputEmail" id="email" placeholder="Digite seu email" type="email" required />
+        <br />
+        <button class="Button" type="submit">Enviar Feedback</button>
+    </form>
     <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script type="text/javascript">
-        (function() {
+        (function () {
             emailjs.init("TLVLOUAdRHbRRNGpI");
         })();
-    
-        document.getElementById("feedbackForm").addEventListener("submit", function(event) {
+
+        document.getElementById("feedbackForm").addEventListener("submit", function (event) {
             event.preventDefault();
-    
+
             var nome = document.getElementById("nome").value;
             var feedback = document.getElementById("feedback").value;
             var email = document.getElementById("email").value;
-    
+
             var templateParams = {
                 nome: nome,
                 feedback: feedback,
                 email: email
             };
-    
-            console.log("Dados do formulário:", templateParams); 
 
-            emailjs.send("service_6zka7ci","template_gch9oxa", templateParams)
-                .then(function(response) {
+            console.log("Dados do formulário:", templateParams);
+
+            emailjs.send("service_6zka7ci", "template_gch9oxa", templateParams)
+                .then(function (response) {
                     alert("Feedback enviado com sucesso!");
-                }, function(error) {
-                    console.error("Erro:", error); 
+                }, function (error) {
+                    console.error("Erro:", error);
                     alert("Erro ao enviar feedback. Tente novamente.");
                 });
         });
-    </script>    
-    
+    </script>
+
 </body>
+
 </html>
