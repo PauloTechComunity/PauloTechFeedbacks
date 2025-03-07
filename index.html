@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="image/logoredonda.png" type="image/x-icon">
+    <link rel="stylesheet" href="index.css">
+    <title>Paulo Tech - Feedbacks</title>
+</head>
+<body>
+    <div class="App">
+        <img class="logo" src="image/logoredonda.png" alt="Logo Paulo Tech" />
+        <h1>Paulo Tech (feedbacks)</h1>
+    </div>
+    <br />
+    <center>
+        <form class="form" id="feedbackForm">
+            <p>Nome</p>
+            <input class="inputNome" id="nome" placeholder="Digite seu nome" required />
+            <p>Feedback</p>
+            <textarea class="inputTextArea" id="feedback" placeholder="Digite seu feedback" required></textarea>
+            <p>Email</p>
+            <input class="inputEmail" id="email" placeholder="Digite seu email" type="email" required />
+            <br /><br />
+            <button class="Button" type="submit">Enviar Feedback</button>
+        </form>
+    </center>
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("TLVLOUAdRHbRRNGpI");
+        })();
+    
+        document.getElementById("feedbackForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+    
+            var nome = document.getElementById("nome").value;
+            var feedback = document.getElementById("feedback").value;
+            var email = document.getElementById("email").value;
+    
+            var templateParams = {
+                nome: nome,
+                feedback: feedback,
+                email: email
+            };
+    
+            console.log("Dados do formulário:", templateParams); 
+
+            emailjs.send("service_6zka7ci","template_gch9oxa", templateParams)
+                .then(function(response) {
+                    alert("Feedback enviado com sucesso!");
+                }, function(error) {
+                    console.error("Erro:", error); 
+                    alert("Erro ao enviar feedback. Tente novamente.");
+                });
+        });
+    </script>    
+    
+</body>
+</html>
