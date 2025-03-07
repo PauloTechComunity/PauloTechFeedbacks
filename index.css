@@ -1,0 +1,153 @@
+body { 
+    background-color: rgb(133, 68, 236);
+}
+
+.App {
+    text-align: center;
+    background-color: rgba(116, 116, 116, 0.904);
+    box-shadow: 0 0 10px rgba(63, 63, 63, 0.952);
+    height: 160px;
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    z-index: 1000; 
+}
+
+h1 {
+    color: rgba(250, 250, 250, 0.911);
+    font-size: 1.5em;
+}
+
+.logo {
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+}
+
+.form {
+    background-color: rgba(212, 212, 212, 0.877);
+    box-shadow: 0 0 10px rgb(0, 0, 0);
+    height: 550px;
+    width: 28%;
+    position: absolute;
+    top: 230px;
+    left: 490px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.inputNome {
+    border: 1px solid black;
+    font-size: 17px;
+    border-radius: 5px;
+    height: 20px;
+    width: 290px;
+    margin-bottom: 10px;
+    padding: 5px;
+    text-align: center;
+}
+
+.inputNome::placeholder {
+    color: rgba(0, 0, 0, 0.822);
+}
+
+.inputNome:focus {
+    outline: none;
+    border-color: #000000;
+    box-shadow: 0 0 10px rgba(49, 49, 49, 0.904);
+}
+
+.inputEmail {
+    border: 1px solid black;
+    font-size: 17px;
+    border-radius: 5px;
+    height: 20px;
+    width: 290px;
+    margin-bottom: 10px;
+    padding: 5px;
+    text-align: center;
+}
+
+.inputEmail::placeholder {
+    color: rgba(0, 0, 0, 0.822);
+}
+
+.inputEmail:focus {
+    outline: none;
+    border-color: #000000;
+    box-shadow: 0 0 10px rgba(49, 49, 49, 0.904);
+}
+
+.inputTextArea {
+    border: 1px solid black;
+    font-size: 17px;
+    border-radius: 5px;
+    height: 100px;
+    width: 290px;
+    margin-bottom: 10px;
+    padding: 5px;
+    text-align: center;
+}
+
+.inputTextArea:focus {
+    outline: none;
+    border-color: #000000;
+    box-shadow: 0 0 10px rgba(49, 49, 49, 0.904);
+}
+
+.inputTextArea::placeholder {
+    color: rgba(0, 0, 0, 0.822);
+}
+
+Button {
+    background-color: rgb(5, 5, 252);
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 250px;
+    font-size: 16px;
+}
+
+Button:hover {
+    background-color: rgb(66, 66, 219);
+}
+
+p {
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+@media (max-width: 600px) {
+    .App {
+        height: 120px; 
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 1.2em; 
+    }
+
+    .form {
+        width: 90%; 
+        left: 5%;
+        top: 150px; 
+    }
+
+    .inputNome, .inputEmail, .inputTextArea {
+        width: 90%; 
+    }
+
+    Button {
+        width: 90%; 
+    }
+}
